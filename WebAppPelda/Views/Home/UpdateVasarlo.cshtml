@@ -1,0 +1,63 @@
+﻿
+
+@model WebAppPelda.Models.Customer
+
+@{
+    ViewData["Title"] = "Vásárló updatelő";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="container mt-4" style="max-width:600px;">
+    <h2 class="mb-4">Vásárló adatai</h2>
+       
+    @if (TempData["SuccessMessage"] != null)
+    
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+        </div>    
+    }
+
+
+    <form asp-controller="Home" asp-action="UpdateVasarlo" method="post" class="needs-validation" novalidate>
+
+        <div class="mb-3">
+            <label asp-for="Id" class="form-label">Updatelni kívánt vásárló azonosítója</label>
+            <input asp-for="Id" class="form-control" placeholder="Minta János">
+        </div>
+
+
+
+
+        <div class="mb-3">
+            <label asp-for="Nev" class="form-label">Név</label>
+            <input asp-for="Nev" class="form-control" placeholder="Minta János">
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Cim" class="form-label">Cím</label>
+            <input asp-for="Cim" class="form-control" placeholder="Miskolc valami utca stb.stb">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="valaki@gmail.com">
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Telefon" class="form-label">Telefonszám</label>
+            <input asp-for="Telefon" class="form-control" placeholder="0123-456-789">
+        </div>
+
+
+        <div class="mb-3">
+            <label asp-for="Pont" class="form-label">Pontszám</label>
+            <input asp-for="Pont" class="form-control" placeholder="8">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Módosítás</button>
+    </form>
+</div>
